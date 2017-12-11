@@ -4,21 +4,27 @@
   "description": "lib curso de JS com TDD na prática",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mnvini/js-tdd.git"
   },
-  "keywords": [
-    "js",
-    "tdd",
-    "library"
-  ],
+  "keywords": ["js", "tdd", "library"],
   "author": "Vinicius Moret <viniciusrcr@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mnvini/js-tdd/issues"
   },
-  "homepage": "https://github.com/mnvini/js-tdd#readme"
+  "homepage": "https://github.com/mnvini/js-tdd#readme",
+  "devDependencies": {
+    "eslint": "^4.13.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1",
+    "husky": "^0.14.3"
+  }
 }
