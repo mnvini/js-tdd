@@ -1,45 +1,55 @@
-describe('Main', function() {
-  //roda uma vez antes do bloco
-  before(function() {
-    console.log('before');
+import { expect } from 'chai';
+import { sum, sub, mult, div } from '../src/main';
+describe('Calc', () => {
+  describe('Smoke Test', () => {
+    it('shouls exists the method sum', () => {
+      expect(sum).to.exist;
+      expect(sum).to.be.a('function');
+    });
+
+    it('shouls exists the method sub', () => {
+      expect(sub).to.exist;
+      expect(sub).to.be.a('function');
+    });
+
+    it('shouls exists the method mult', () => {
+      expect(mult).to.exist;
+      expect(mult).to.be.a('function');
+    });
+
+    it('shouls exists the method div', () => {
+      expect(div).to.exist;
+      expect(div).to.be.a('function');
+    });
   });
 
-  //roda uma vez epois do bloco
-  after(function() {
-    console.log('after');
+  describe('Sum', () => {
+    it('should return 4 when sum(2,2)', () => {
+      expect(sum(2, 2)).to.be.equal(4);
+    });
   });
 
-  //roda todas as vezes ANTES DE CADA bloco
-  beforeEach(function() {
-    console.log('beforeEach');
+  describe('Sub', () => {
+    it('shold return -2 when sub(6,8)', () => {
+      expect(sub(4, 2)).to.be.equal(2);
+    });
   });
 
-  //roda todas as veses DEPOIS DE CADA bloco
-  afterEach(function() {
-    console.log('afterEach');
+  describe('Mult', () => {
+    it('should return 4 when mult(2,2)', () => {
+      expect(mult(2, 2)).to.be.equal(4);
+    });
   });
 
-  it('teste 1', function() {
-    console.log('teste 1');
-    return true;
+  describe('Div', () => {
+    it('should return 2 when div(4,2)', () => {
+      expect(div(4, 2)).to.be.equal(2);
+    });
   });
 
-  it('teste 2', function() {
-    console.log('teste 2');
-    return true;
+  describe('Div', () => {
+    it('should return `0 is not divisible`', () => {
+      expect(div(3, 0)).to.be.equal('0 is not divisible');
+    });
   });
-  // describe('Method A', function() {
-  //   context('Case 1', function() {
-  //     //usar it.skip pra quando quiser pular um teste
-  //     it.skip('should happen blablabla', function() {
-  //       throw new Error('error');
-  //     });
-  //   });
-  //   //usa context.only() prarodar somente um test
-  //   context.only('Case 2', function() {
-  //     it('should happen mimimi', function() {
-  //       return true;
-  //     });
-  //   });
-  // });
 });

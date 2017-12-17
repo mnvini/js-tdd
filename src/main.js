@@ -1,30 +1,6 @@
-const a = 3;
-const b = 4;
-const c = 'aha  ';
+const sum = (num1, num2) => num1 + num2;
+const sub = (num1, num2) => num1 - num2;
+const mult = (num1, num2) => num1 * num2;
+const div = (num1, num2) => (num2 === 0 ? '0 is not divisible' : num1 / num2);
 
-function sum() {
-  return a + b + c;
-}
-
-sum();
-
-class Animal {
-  constructor(name) {
-    this.name = name;
-  }
-
-  hello() {
-    console.log(`I'm ${this.name}`);
-  }
-}
-
-class Dog extends Animal {
-  constructor(name, sound) {
-    super(name);
-    this.sound = sound;
-  }
-
-  bark() {
-    console.log(`${this.sound} I'm ${this.name}`);
-  }
-}
+export { sum, sub, mult, div };
