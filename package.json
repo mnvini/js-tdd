@@ -5,9 +5,19 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "prepush": "npm run lint",
-    "test": "./node_modules/.bin/mocha tests/**/*.spec.js",
-    "fast-test": "npm run test -- --bail"
+    "prepush": "npm run lint && npm run test:coverage",
+    "test":
+      "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd":
+      "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test"
+  },
+  "nyc": {
+    "lines": 80,
+    "functions": 80,
+    "check-coverage": true,
+    "reporter": ["text", "html"],
+    "exclude": ["tests/**"]
   },
   "repository": {
     "type": "git",
@@ -21,6 +31,8 @@
   },
   "homepage": "https://github.com/mnvini/js-tdd#readme",
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "eslint": "^4.13.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -28,6 +40,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
     "husky": "^0.14.3",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0"
   }
 }

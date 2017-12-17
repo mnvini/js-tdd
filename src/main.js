@@ -1,30 +1,12 @@
-const a = 3;
-const b = 4;
-const c = 'aha  ';
+const FizzBuzz = num => {
+  if (num === 0) return 0;
+  if (num % 3 === 0 && num % 5 === 0) return 'FizzBuzz';
+  if (num % 3 === 0) return 'Fizz';
+  if (num % 5 === 0) return 'Buzz';
+  return num;
+};
 
-function sum() {
-  return a + b + c;
+function foo() {
+  return 'bla';
 }
-
-sum();
-
-class Animal {
-  constructor(name) {
-    this.name = name;
-  }
-
-  hello() {
-    console.log(`I'm ${this.name}`);
-  }
-}
-
-class Dog extends Animal {
-  constructor(name, sound) {
-    super(name);
-    this.sound = sound;
-  }
-
-  bark() {
-    console.log(`${this.sound} I'm ${this.name}`);
-  }
-}
+export default FizzBuzz;

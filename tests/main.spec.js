@@ -1,45 +1,26 @@
-describe('Main', function() {
-  //roda uma vez antes do bloco
-  before(function() {
-    console.log('before');
+import { expect } from 'chai';
+import FizzBuzz from '../src/main';
+
+describe('FizzBuzz', () => {
+  it('should return Fizz when multiple of 3', () => {
+    expect(FizzBuzz(3)).to.be.equal('Fizz');
+    expect(FizzBuzz(6)).to.be.equal('Fizz');
   });
 
-  //roda uma vez epois do bloco
-  after(function() {
-    console.log('after');
+  it('should return Buzz when multiple of 5', () => {
+    expect(FizzBuzz(5)).to.be.equal('Buzz');
+    expect(FizzBuzz(10)).to.be.equal('Buzz');
   });
 
-  //roda todas as vezes ANTES DE CADA bloco
-  beforeEach(function() {
-    console.log('beforeEach');
+  it('should return FizzBuzz when multiple of 3 and 5', () => {
+    expect(FizzBuzz(15)).to.be.equal('FizzBuzz');
   });
 
-  //roda todas as veses DEPOIS DE CADA bloco
-  afterEach(function() {
-    console.log('afterEach');
+  it('should return the number when is non-multiple', () => {
+    expect(FizzBuzz(7)).to.be.equal(7);
   });
 
-  it('teste 1', function() {
-    console.log('teste 1');
-    return true;
+  it('should return 0 when 0', () => {
+    expect(FizzBuzz(0)).to.be.equal(0);
   });
-
-  it('teste 2', function() {
-    console.log('teste 2');
-    return true;
-  });
-  // describe('Method A', function() {
-  //   context('Case 1', function() {
-  //     //usar it.skip pra quando quiser pular um teste
-  //     it.skip('should happen blablabla', function() {
-  //       throw new Error('error');
-  //     });
-  //   });
-  //   //usa context.only() prarodar somente um test
-  //   context.only('Case 2', function() {
-  //     it('should happen mimimi', function() {
-  //       return true;
-  //     });
-  //   });
-  // });
 });
